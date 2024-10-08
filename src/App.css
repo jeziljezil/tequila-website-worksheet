@@ -1,0 +1,82 @@
+#root {
+}
+
+body {
+  color: white;
+}
+
+/* This CSS targets the autofilled state of input fields */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px rgba(97, 61, 146, 0.1) inset !important; /* Change the color to match your design */
+  -webkit-text-fill-color: #fff; /* Change the text color if needed */
+}
+
+input:-webkit-autofill:focus {
+  box-shadow: 0 0 0 30px rgba(97, 61, 146, 0.1) inset !important; /* Change the color to match your design */
+  transition: background-color 5000s ease-in-out 0s; /* Prevent background flickering */
+}
+
+.text-white {
+  color: #ffffff;
+}
+.text-4xl {
+  font-size: 2.25rem; /* Adjust size as needed */
+}
+.font-bold {
+  font-weight: 700;
+}
+.neon-text {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
+    /* Main glow */ 0 0 10px rgba(213, 69, 220, 0.936),
+    /* Outer cyan glow */ 0 0 15px rgb(136, 48, 195),
+    /* Strong cyan glow */ 0 0 20px rgb(137, 51, 203); /* Further enhanced glow */
+}
+.neon-text-b {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
+    /* Main glow */ 0 0 10px rgba(69, 220, 213, 0.936),
+    /* Outer cyan glow */ 0 0 15px rgb(48, 195, 190),
+    /* Strong cyan glow */ 0 0 20px rgb(51, 183, 203); /* Further enhanced glow */
+}
+.hover-opacity {
+  background-color: rgba(0, 0, 0, 0.05); /* Default opacity */
+  transition: background-color 0.3s ease-in-out;
+}
+
+.hover-opacity:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Hovered opacity */
+}
+/* Custom scrollbar for WebKit browsers (Chrome, Safari, etc.) */
+.custom-scroll::-webkit-scrollbar {
+  width: 8px; /* Adjust the width of the scrollbar */
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: transparent; /* Track background color */
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2); /* Scrollbar color */
+  border-radius: 10px; /* Make the scrollbar rounded */
+  border: 2px solid transparent; /* Padding inside the scrollbar */
+}
+
+/* Custom scrollbar for Firefox */
+.custom-scroll {
+  scrollbar-width: thin; /* Set the width of the scrollbar */
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent; /* Scrollbar and track color */
+}
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px); /* Move to the right */
+  }
+  100% {
+    transform: translateX(0); /* Move back */
+  }
+}
+
+.move {
+  animation: slide 1.5s ease-in-out infinite; /* Adjust duration and timing as needed */
+}
