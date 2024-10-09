@@ -84,7 +84,7 @@ export default function FormDataContextProvider({ children }) {
     addOnServices: [],
     brandingService: [],
   });
-  // console.log(formDataState);
+  console.log(formDataState);
   // console.log(isEmpty);
   // functions
 
