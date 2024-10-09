@@ -297,7 +297,7 @@ const EachContact = ({ onAddContact, pocObject, handleBlur }) => {
         bg-transparent p-2 placeholder:opacity-50 focus:outline-none 
        `}
         placeholder="Enter phone number"
-        autoComplete="off"
+        // autoComplete="off"
         id="phoneNumber"
         value={pocObject.phoneNumber || ""} // Assuming formData contains phoneNumber
         onChange={(event) => onAddContact("phoneNumber", event.target.value)}
@@ -314,7 +314,7 @@ const EachContact = ({ onAddContact, pocObject, handleBlur }) => {
         bg-transparent p-2 placeholder:opacity-50 focus:outline-none 
        `}
         placeholder="Enter email"
-        autoComplete="off"
+        // autoComplete="off"
         id="email"
         value={pocObject.email || ""}
         onChange={(event) => onAddContact("email", event.target.value)} // Handle email input
