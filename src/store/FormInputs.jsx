@@ -676,7 +676,7 @@ export const WebsitePurpose = () => {
 
 // Section 4
 export const TargetAudience = () => {
-  const { updateFormData } = useContext(FormData);
+  const { updateDemographicList } = useContext(FormData);
   const [selectedButtons, setSelectedButtons] = useState([]);
   const [error, setError] = useState(false);
 
@@ -730,7 +730,7 @@ export const TargetAudience = () => {
       }
 
       // Update the form data with the new list
-      updateFormData(newList);
+      updateDemographicList(newList);
 
       // Set the error state based on whether the list is empty
       if (newList.length === 0) {
@@ -1091,21 +1091,38 @@ export const Reference = () => {
 
 // Section 7
 export const DomainHostingServices = () => {
-  const { updateFormData } = useContext(FormData);
-  const [selectedButtons, setSelectedButtons] = useState([]);
+  const { updateDomainHosting, updateAddonServices, updateBrandingServices } =
+    useContext(FormData);
+  const [selectedDomainHosting, setSelectedDomainHosting] = useState([]);
+  const [selectedAddonServices, setSelectedAddonServices] = useState([]);
+  const [selectedBrandingServices, setSelectedBrandingServices] = useState([]);
   const domainHostingList = ["Domain", "Hosting"];
   const postlaunchService = ["Website Maintenance", "Website Design Contract"];
   const otherServices = [
-    " Branding / Re-branding",
+    "Branding / Re-branding",
     "Logo Design",
     "Graphic Design",
     "Social Media Management",
   ];
 
-  function onSelectButton(selected) {
-    setSelectedButtons((prev) => {
+  function onSelectDomainHosting(selected) {
+    setSelectedDomainHosting((prev) => {
       const newList = [...prev, selected];
-      updateFormData(newList);
+      updateDomainHosting(newList);
+      return newList;
+    });
+  }
+  function onSelectAddonServices(selected) {
+    setSelectedAddonServices((prev) => {
+      const newList = [...prev, selected];
+      updateAddonServices(newList);
+      return newList;
+    });
+  }
+  function onSelectBrandingServices(selected) {
+    setSelectedBrandingServices((prev) => {
+      const newList = [...prev, selected];
+      updateBrandingServices(newList);
       return newList;
     });
   }
@@ -1124,7 +1141,7 @@ export const DomainHostingServices = () => {
               text={item}
               color={"#1395BC"}
               bgColor={"#1395BC"}
-              onSelect={onSelectButton}
+              onSelect={onSelectDomainHosting}
             />
           ))}
         </div>
@@ -1140,7 +1157,7 @@ export const DomainHostingServices = () => {
               text={item}
               color={"#613d92"}
               bgColor={"#613d92"}
-              onSelect={onSelectButton}
+              onSelect={onSelectAddonServices}
             />
           ))}
         </div>
@@ -1157,7 +1174,7 @@ export const DomainHostingServices = () => {
               text={item}
               color={"#c45cad"}
               bgColor={"#c45cad"}
-              onSelect={onSelectButton}
+              onSelect={onSelectBrandingServices}
             />
           ))}
         </div>

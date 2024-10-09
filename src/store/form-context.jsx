@@ -43,6 +43,10 @@ export const FormData = createContext({
   updateBrandStyle2: () => {},
   updateReference: () => {},
   updatePurposeList: () => {},
+  updateDemographicList: () => {},
+  updateDomainHosting: () => {},
+  updateAddonServices: () => {},
+  updateBrandingServices: () => {},
 });
 
 export default function FormDataContextProvider({ children }) {
@@ -80,7 +84,7 @@ export default function FormDataContextProvider({ children }) {
     addOnServices: [],
     brandingService: [],
   });
-  console.log(formDataState);
+  // console.log(formDataState);
   // console.log(isEmpty);
   // functions
 
@@ -114,11 +118,20 @@ export default function FormDataContextProvider({ children }) {
     }));
   }
 
+  // Section 4
+  function updateDemographicList(list) {
+    setFormDataState((prev) => ({
+      ...prev,
+      targetDemographics: [...list],
+    }));
+  }
+
   // Section 5
   function updateBrandStyle1(list) {
     setFormDataState((prev) => ({
       ...prev,
       brandStyle: {
+        ...prev.brandStyle,
         brandImage: [...list],
       },
     }));
@@ -127,6 +140,7 @@ export default function FormDataContextProvider({ children }) {
     setFormDataState((prev) => ({
       ...prev,
       brandStyle: {
+        ...prev.brandStyle,
         uxuiStyle: [...list],
       },
     }));
@@ -137,6 +151,28 @@ export default function FormDataContextProvider({ children }) {
     setFormDataState((prev) => ({
       ...prev,
       references: { ...prev.references, [key]: value },
+    }));
+  }
+
+  // Section 7
+  function updateDomainHosting(list) {
+    setFormDataState((prev) => ({
+      ...prev,
+      domainAndHosting: [...list],
+    }));
+  }
+
+  function updateAddonServices(list) {
+    setFormDataState((prev) => ({
+      ...prev,
+      addOnServices: [...list],
+    }));
+  }
+
+  function updateBrandingServices(list) {
+    setFormDataState((prev) => ({
+      ...prev,
+      brandingService: [...list],
     }));
   }
 
@@ -151,6 +187,10 @@ export default function FormDataContextProvider({ children }) {
     updateBrandStyle2,
     updateReference,
     updatePurposeList,
+    updateDemographicList,
+    updateDomainHosting,
+    updateAddonServices,
+    updateBrandingServices,
   };
   return <FormData.Provider value={formDataCtx}>{children}</FormData.Provider>;
 }
