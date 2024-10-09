@@ -12,12 +12,15 @@ const NameIt = () => {
       </p>
 
       <h2 className="text-2xl text-wrap m-4">Name It</h2>
-      <div className="absolute top-[30%] left-[10%]">
+      <div className="absolute top-[15%] left-[10%]">
         <label
           htmlFor="brandStyle"
           className={`mt-4 w-20 transition-opacity text-4xl duration-500 ease-in-out font-inter text-left`}
         >
-          What's the Name?
+          What's the
+          <span className="font-medium bg-gradient-to-r from-[#38c3ed] via-[#3250e7] to-[#9261d6] bg-clip-text text-transparent">
+            &nbsp;Name?
+          </span>
         </label>
         <p className="text-left mt-6">
           You may share your <span className="">website</span> URL here,

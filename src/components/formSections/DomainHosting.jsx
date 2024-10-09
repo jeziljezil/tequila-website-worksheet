@@ -12,7 +12,7 @@ const DomainHosting = () => {
       </p>
 
       <h2 className="text-2xl text-wrap m-4">Domain & Hosting</h2>
-      <div className="absolute flex flex-col top-[30%] left-[10%]">
+      <div className="absolute flex flex-col top-[15%] left-[10%]">
         <label
           htmlFor="brandStyle"
           className={`mt-4 w-20 text-nowrap transition-opacity text-4xl duration-500 ease-in-out font-inter text-left`}
@@ -28,7 +28,7 @@ const DomainHosting = () => {
           &nbsp;the right options
         </p>
       </div>
-      <div className="flex flex-col fixed top-20 left-[40%] w-[50%]">
+      <div className="flex flex-col fixed top-32 left-[40%] w-[50%]">
         <DomainHostingServices />
       </div>
     </div>

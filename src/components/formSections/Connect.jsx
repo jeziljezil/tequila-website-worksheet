@@ -15,14 +15,17 @@ const Connect = () => {
         <span className="text-2xl font-medium">2</span>
       </p>
       <h2 className="text-2xl text-wrap m-4">Connecting With You</h2>
-      <div className="absolute top-[30%] left-[10%] text-left">
+      <div className="absolute top-[15%] left-[10%] text-left">
         <label
           htmlFor="brandStyle"
           className={`mt-4 w-20 transition-opacity text-4xl duration-500 ease-in-out font-inter`}
         >
           We'd love
           <br />
-          to contact you
+          to
+          <span className="font-medium bg-gradient-to-r from-[#38c3ed] via-[#3250e7] to-[#9261d6] bg-clip-text text-transparent">
+            &nbsp;contact you
+          </span>
         </label>
         <p className="text-left mt-6">
           Give us upto two contacts,
@@ -31,7 +34,7 @@ const Connect = () => {
         </p>
       </div>
 
-      <div className="flex flex-col fixed top-28 left-[40%] w-[90%]">
+      <div className="flex flex-col fixed top-24 left-[40%] w-[90%]">
         <CompanyName />
         <ContactPOC />
       </div>

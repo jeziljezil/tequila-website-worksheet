@@ -11,7 +11,7 @@ const Preference = () => {
         <span className="text-2xl font-medium">6</span>
       </p>
       <h2 className="text-2xl text-wrap m-4">Your Preferences</h2>
-      <div className="absolute flex flex-col top-[30%] left-[10%]">
+      <div className="absolute flex flex-col top-[15%] left-[10%]">
         <label
           htmlFor="brandStyle"
           className={`mt-4 w-20 text-nowrap transition-opacity text-4xl duration-500 ease-in-out font-inter text-left`}
@@ -27,7 +27,7 @@ const Preference = () => {
           for the website.
         </p>
       </div>
-      <div className="flex flex-col fixed top-10 left-[40%] w-[90%]">
+      <div className="flex flex-col fixed top-24 left-[40%] w-[90%]">
         <Reference />
       </div>
     </div>
