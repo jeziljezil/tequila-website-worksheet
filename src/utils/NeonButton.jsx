@@ -33,11 +33,11 @@ const NeonButton = ({ text, color, onSelect, bgColor }) => {
   };
 
   return (
-    <button
+    <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleClick}
-      className={`relative max-w-fit text-nowrap pl-2 pr-8 py-3 bg-gray-400 bg-opacity-5 hover:bg-opacity-15 shadow-extra-lg 
+      className={`cursor-pointer relative max-w-fit text-nowrap pl-2 pr-8 py-3 bg-gray-400 bg-opacity-5 hover:bg-opacity-15 shadow-extra-lg 
         ${
           isNeon ? "text-white" : "text-gray-300 hover:text-white"
         } tracking-wide rounded-full 
@@ -71,7 +71,7 @@ const NeonButton = ({ text, color, onSelect, bgColor }) => {
         </div>
         {text}
       </div>
-    </button>
+    </div>
   );
 };
 

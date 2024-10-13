@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { useEffect, useState, useRef } from "react";
+import emailjs from "emailjs-com";
 
 import { FormData } from "../store/form-context";
 
@@ -16,6 +17,8 @@ import Appearance from "./formSections/Appearance";
 import SubmitSlider from "./SubmitSlider";
 
 const Form = ({ scrolled }) => {
+  emailjs.init("IdMbo9_o9SXf5h5GH"); // Initialize EmailJS with your User ID
+  const formRef = useRef();
   const { formData, isEmpty } = useContext(FormData);
   const cards = [
     <Intro firstScroll={handleFirstScroll} />,
@@ -47,43 +50,48 @@ const Form = ({ scrolled }) => {
   const newStatusBarWidth =
     (screenWidth * 0.9 * (currentCard + 1)) / cards.length;
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const templateParams = {
+      project_name: formData.projectName,
+      website_new: formData.website.newWebsite,
+      website_redesign: formData.website.redesignWebsite,
+      website_url: formData.website.url,
+      company_name: formData.companyName,
+      poc_contact: formData.pocContact.join(", "),
+      file_company_profile: formData.fileCompanyProfile,
+      brand_description: formData.brandDescription,
+      website_purpose: formData.websitePurpose.join(", "),
+      target_demographics: formData.targetDemographics.join(", "),
+      brand_image: formData.brandStyle.brandImage.join(", "),
+      uxui_style: formData.brandStyle.uxuiStyle.join(", "),
+      reference_url: formData.references.url,
+      reference_comments: formData.references.comments,
+      other_specifications: formData.otherSpecifications,
+      domain_and_hosting: formData.domainAndHosting.join(", "),
+      add_on_services: formData.addOnServices.join(", "),
+      branding_service: formData.brandingService.join(", "),
+    };
 
-    try {
-      // Prepare data to send to the backend
-      const formDataToSend = {
-        name: formData.name || "",
-        email: formData.email || "",
-        phoneNumber: formData.phoneNumber || "",
-        company: formData.company || "",
-        file: formData.selectedFile
-          ? {
-              name: formData.selectedFile.name,
-              url: URL.createObjectURL(formData.selectedFile),
-            }
-          : null,
-      };
-
-      // Send POST request to the backend
-      const response = await fetch("http://localhost:5000/send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+    emailjs
+      .send(
+        "service_711dyn1", // Replace with your EmailJS service ID
+        "template_3h2dnma", // Replace with your EmailJS template ID
+        templateParams
+        // formRef.current
+        // e.target
+      )
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          // setIsSubmitting(false);
+          // setIsSubmitted(true);
         },
-        body: JSON.stringify(formDataToSend),
-      });
-
-      const result = await response.json();
-      if (result.success) {
-        alert("Form submitted and email sent successfully!");
-      } else {
-        alert("Failed to send email.");
-      }
-    } catch (error) {
-      // console.error("Error submitting the form:", error);
-      // alert("An error occurred while submitting the form.");
-    }
+        (err) => {
+          console.error("FAILED...", err);
+          // setIsSubmitting(false);
+        }
+      );
   };
 
   useEffect(() => {
@@ -124,12 +132,6 @@ const Form = ({ scrolled }) => {
     return () => window.removeEventListener("wheel", handleScroll);
   }, [currentCard, isScrolling]);
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   console.log(formData); // Access form data here
-  //   console.log("form submitted"); // Access form data here
-  // };
-
   function handleFirstScroll() {
     setCurrentCard(1);
     scrolled(true);
@@ -142,7 +144,7 @@ const Form = ({ scrolled }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate>
+    <form ref={formRef} onSubmit={handleSubmit} noValidate>
       <div className={`flex h-screen pt-20 `}>
         {cards.map((card, index) => {
           const isActive = currentCard === index;
@@ -207,3 +209,48 @@ export default Form;
 
 // bottom status bar color gradient
 // bg-gradient-to-r from-[#337e95] via-[#3f0097] to-[#bd296e] bg-opacity-0
+
+// const handleSubmit = async (event) => {
+//   event.preventDefault();
+
+//   try {
+//     // Prepare data to send to the backend
+//     const formDataToSend = {
+//       name: formData.name || "",
+//       email: formData.email || "",
+//       phoneNumber: formData.phoneNumber || "",
+//       company: formData.company || "",
+//       file: formData.selectedFile
+//         ? {
+//             name: formData.selectedFile.name,
+//             url: URL.createObjectURL(formData.selectedFile),
+//           }
+//         : null,
+//     };
+
+//     // Send POST request to the backend
+//     const response = await fetch("http://localhost:5000/send-email", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(formDataToSend),
+//     });
+
+//     const result = await response.json();
+//     if (result.success) {
+//       alert("Form submitted and email sent successfully!");
+//     } else {
+//       alert("Failed to send email.");
+//     }
+//   } catch (error) {
+//     // console.error("Error submitting the form:", error);
+//     // alert("An error occurred while submitting the form.");
+//   }
+// };
+
+// const handleSubmit = (event) => {
+//   event.preventDefault();
+//   console.log(formData); // Access form data here
+//   console.log("form submitted"); // Access form data here
+// };

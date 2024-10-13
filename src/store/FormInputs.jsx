@@ -58,6 +58,7 @@ export const ProjectName = () => {
       </label>
       <input
         type="text"
+        name="project_name"
         className="w-[58%] text-2xl placeholder:text-base placeholder:font-light placeholder:my-auto border-b-[0.25px] border-opacity-50 border-gray-300 bg-transparent  p-2 placeholder:opacity-50 focus:outline-none  focus:ring-gray-500"
         placeholder="Enter project name"
         autoComplete="off"
@@ -188,6 +189,7 @@ export const Website = () => {
           Enter your website url
         </label>
         <input
+          name="website_url"
           type="url" // Use type "url" for URL input validation
           className={`w-[58%] text-xl placeholder:lowercase placeholder:text-base placeholder:font-light 
         placeholder:my-auto border-b-[0.25px] border-opacity-50 border-gray-300 
@@ -242,6 +244,7 @@ export const CompanyName = () => {
         Name of Company
       </label>
       <input
+        name="company_name"
         type="text"
         className={`w-[25%] text-xl placeholder:text-base placeholder:font-light
         placeholder:my-auto border-b-[0.25px] border-opacity-50 border-gray-300 
@@ -576,6 +579,7 @@ export const ServicesOffered = ({ setError, setTouched }) => {
         Tell us about the services you offer?
       </label>
       <textarea
+        name="brand_description"
         className={`w-full h-[80%] mt-2 text-xl placeholder:text-base placeholder:font-light
         placeholder:my-auto placeholder:text-wrap placeholder:text-center backdrop-blur-3xl bg-transparent bg-opacity-10 
         rounded-lg p-2 placeholder:opacity-50 focus:outline-none 
@@ -1026,6 +1030,7 @@ export const Reference = () => {
             Reference website URL
           </label>
           <input
+            name="reference_url"
             type="url" // Use type "url" for URL input validation
             className={`w-full text-xl placeholder:lowercase placeholder:text-base placeholder:font-light 
         placeholder:my-auto border-b-[0.25px] border-opacity-50  border-gray-300 
@@ -1045,6 +1050,7 @@ export const Reference = () => {
             Comments
           </label>
           <textarea
+            name="reference_comments"
             className={`w-full h-16 text-lg placeholder:text-base placeholder:font-light
         placeholder:my-auto border-b-[0.25px] border-opacity-50 border-gray-300 
         bg-transparent p-2 placeholder:opacity-50 focus:outline-none 
@@ -1068,6 +1074,7 @@ export const Reference = () => {
           Anything specific for your website?
         </label>
         <textarea
+          name="other_specifications"
           className={`w-full h-32 text-xl placeholder:text-base placeholder:font-light
         placeholder:my-auto border-b-[0.25px] border-opacity-50 border-gray-300 
         bg-transparent p-2 placeholder:opacity-50 focus:outline-none 

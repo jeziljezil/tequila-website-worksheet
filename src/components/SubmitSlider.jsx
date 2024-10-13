@@ -18,9 +18,13 @@ const SubmitSlider = () => {
       <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
     </svg>
   );
-  7;
+
   return (
-    <div className="absolute top-[10%] left-[20%]">
+    <button
+      label="Submit"
+      type="submit"
+      className="absolute top-[10%] left-[20%]"
+    >
       <img src={img} alt="" className="fixed left-0 bottom-0 h-40 ml-2" />
       <h1 className="text-left text-5xl">
         <span className="tracking-widest text-9xl bg-gradient-to-r from-[#38c3ed] via-[#3250e7] to-[#9261d6] bg-clip-text text-transparent">
@@ -47,7 +51,7 @@ const SubmitSlider = () => {
         </h1>
         <div className="move my-auto pb-4">{arrowHead}</div>
       </div>
-    </div>
+    </button>
   );
 };
 
